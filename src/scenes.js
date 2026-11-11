@@ -9,18 +9,28 @@ function mesh(g,geo,m,x=0,y=0,z=0){const o=new T.Mesh(geo,m);o.position.set(x,y,
 function box(g,w,h,d,m,x,y,z,r=.07){return mesh(g,new RoundedBoxGeometry(w,h,d,3,Math.min(r,w*.45,h*.45,d*.45)),m,x,y,z)}
 function ball(g,r,m,x,y,z,s=[1,1,1]){const o=mesh(g,new T.SphereGeometry(r,24,18),m,x,y,z);o.scale.set(...s);return o;}
 function cylinder(g,r,h,m,x,y,z){return mesh(g,new T.CylinderGeometry(r,r,h,32),m,x,y,z)}
-function cabin(){const g=new T.Group();
- cylinder(g,2.65,.28,mat('#786744'),0,-.14,0).scale.z=.82;cylinder(g,2.68,.12,mat('#82905b'),0,.02,0).scale.z=.82;
- for(let i=0;i<7;i++){let y=.29+i*.23;for(let z of [-.87,.87]){let o=cylinder(g,.14,2.6,wood,0,y,z);o.rotation.z=Math.PI/2;for(let x of [-1.31,1.31]){o=cylinder(g,.123,.02,ends,x,y,z);o.rotation.z=Math.PI/2;}}for(let x of [-1.08,1.08]){let o=cylinder(g,.14,2.13,wood,x,y,0);o.rotation.x=Math.PI/2;for(let z of [-1.07,1.07]){o=cylinder(g,.122,.02,ends,x,y,z);o.rotation.x=Math.PI/2;}}}
- const shape=new T.Shape();shape.moveTo(-1.2,0);shape.lineTo(1.2,0);shape.lineTo(0,.87);shape.closePath();mesh(g,new T.ExtrudeGeometry(shape,{depth:1.9,bevelEnabled:false}),wood,0,1.67,-.95);
- for(let s of [-1,1]){const o=box(g,1.85,.26,2.65,green,s*.64,2.15,0);o.rotation.z=-s*.64;}
- const glow=mat('#ffd77c',{emissive:'#ffb445',emissiveIntensity:.5});box(g,.91,.86,.15,dark,0,1.02,1.03);box(g,.72,.67,.17,glow,0,1.02,1.07);box(g,.06,.73,.19,ends,0,1.02,1.13);box(g,.78,.06,.19,ends,0,1.02,1.13);box(g,1.08,.11,.34,ends,0,.57,1.12);
- box(g,.13,1.17,.65,dark,1.23,.73,0);box(g,.15,1.04,.51,ends,1.25,.71,0);ball(g,.045,orange,1.34,.76,.16);box(g,.6,.12,.85,mat('#bfa481'),1.5,.16,0);
- box(g,.4,.95,.42,mat('#807967'),-.65,2.46,-.5);box(g,.52,.16,.54,dark,-.65,2.96,-.5);
- for(let [x,z,s] of [[-1.85,-.45,1],[1.63,-1.15,.82],[-1.75,1.1,.55]]){cylinder(g,.1,.6,wood,x,.3,z);for(let k=0;k<3;k++)mesh(g,new T.LatheGeometry([new T.Vector2(0,0),new T.Vector2((.56-k*.1)*s,.06*s),new T.Vector2((.51-k*.1)*s,.18*s),new T.Vector2((.3-k*.06)*s,.5*s),new T.Vector2(.04*s,.8*s),new T.Vector2(0,.86*s)],24),k%2?leaf:green,x,(.25+k*.38)*s,z);}
- for(let i=0;i<7;i++)ball(g,.15,mat('#b9ad8b'),Math.sin(i*2)*2.3,.12,Math.cos(i*2)*1.7,[1.4,.7,1]);
- for(let i=0;i<3;i++)box(g,.35,.04,.3,ends,1.5+i*.3,.12,.15+i*.3);
- addFire(g);return g;}
+function cabin(){const g=new T.Group(),timber=mat('#a66332'),cut=mat('#d89a52'),roofm=[mat('#645043'),mat('#715543'),mat('#795b46')],stone=mat('#99907b');
+ cylinder(g,2.72,.16,mat('#6b754b'),0,-.1,0).scale.z=.91;
+ // Interlocking horizontal logs, with end grain visible at the corners.
+ for(let i=0;i<8;i++){const y=.28+i*.205;for(const z of [-1.03,1.03]){const log=cylinder(g,.123,2.52,timber,0,y,z);log.rotation.z=Math.PI/2;for(const x of [-1.265,1.265]){let cap=cylinder(g,.117,.018,cut,x,y,z);cap.rotation.z=Math.PI/2;}}
+ for(const x of [-1.08,1.08]){const log=cylinder(g,.126,2.38,timber,x,y,0);log.rotation.x=Math.PI/2;for(const z of [-1.2,1.2]){const cap=cylinder(g,.119,.02,cut,x,y,z);cap.rotation.x=Math.PI/2;const ring=mesh(g,new T.TorusGeometry(.074,.005,5,24),timber,x,y,z+.012);}}}
+ const shape=new T.Shape();shape.moveTo(-1.16,0);shape.lineTo(1.16,0);shape.lineTo(0,1.02);shape.closePath();mesh(g,new T.ExtrudeGeometry(shape,{depth:2.16,bevelEnabled:false}),timber,0,1.8,-1.08);
+ // Individual overlapping shingles over two pitched roof planes.
+ const pitch=.69;for(const s of [-1,1]){const plane=box(g,1.93,.1,2.95,roofm[0],s*.73,2.3,0);plane.rotation.z=-s*pitch;for(let row=0;row<7;row++){const u=.12+row*.255;for(let col=0;col<8;col++){let z=-1.3+col*.37+(row%2)*.035;const sh=box(g,.32,.075,.365,roofm[(row+col)%3],s*u*Math.cos(pitch),3.03-u*Math.sin(pitch),z,.025);sh.rotation.z=-s*pitch;}}
+ for(const z of [-1.48,1.48]){let trim=box(g,1.98,.15,.14,cut,s*.73,2.31,z,.045);trim.rotation.z=-s*pitch;}}
+ let ridge=cylinder(g,.085,3.05,cut,0,2.93,0);ridge.rotation.x=Math.PI/2;
+ // Front door, inset panels, small panes and brass handle.
+ box(g,.88,1.49,.16,cut,.2,.91,1.22);box(g,.65,1.31,.18,mat('#613c26'),.2,.88,1.3);box(g,.49,.54,.03,dark,.2,1.16,1.402);for(const x of [.04,.36])box(g,.025,.54,.04,cut,x,1.16,1.43);box(g,.5,.035,.04,cut,.2,1.16,1.43);box(g,.45,.42,.04,timber,.2,.57,1.41);ball(g,.035,mat('#bfa16a'),.43,.85,1.46);
+ const glow=mat('#fbd483',{emissive:'#f5b85a',emissiveIntensity:.3});box(g,.11,.84,.8,cut,1.23,1.03,-.25);box(g,.13,.65,.62,dark,1.3,1.03,-.25);box(g,.15,.56,.52,glow,1.32,1.03,-.25);box(g,.16,.61,.035,cut,1.34,1.03,-.25);box(g,.16,.04,.59,cut,1.34,1.03,-.25);
+ box(g,.38,.46,.08,cut,0,2.18,1.14);box(g,.24,.33,.1,dark,0,2.18,1.2);box(g,.035,.34,.12,cut,0,2.18,1.22);
+ // Porch planks, steps and cross-braced railings.
+ for(let i=0;i<9;i++)box(g,.31,.11,1,cut,-1.24+i*.31,.19,1.69,.02);box(g,1.02,.11,.34,timber,.2,.08,2.36);box(g,.94,.11,.31,cut,.2,.14,2.13);
+ const beam=(a,b,r,m)=>{const av=new T.Vector3(...a),bv=new T.Vector3(...b),d=bv.clone().sub(av),o=cylinder(g,r,d.length(),m,...av.clone().add(bv).multiplyScalar(.5).toArray());o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),d.normalize());};
+ for(const s of [-1,1]){for(const z of [1.28,2.07])box(g,.13,.75,.13,cut,s*1.32,.61,z,.035);box(g,.16,.13,.94,cut,s*1.32,.91,1.67);beam([s*1.32,.35,1.32],[s*1.32,.85,2.02],.035,cut);beam([s*1.32,.85,1.32],[s*1.32,.35,2.02],.035,cut);const inner=s===1?.78:-.55;box(g,.12,.7,.12,cut,inner,.59,2.07);box(g,Math.abs(s*1.32-inner),.11,.13,cut,(s*1.32+inner)/2,.9,2.07);beam([s*1.32,.38,2.07],[inner,.84,2.07],.034,cut);beam([s*1.32,.84,2.07],[inner,.38,2.07],.034,cut);}
+ // Block masonry chimney and open timber cap.
+ box(g,.4,1.23,.45,stone,-.62,2.75,-.63);for(let row=0;row<6;row++)for(let col=0;col<2;col++)box(g,.194,.19,.46,mat(row%2?'#a99a7e':'#8c8474'),-.72+col*.205,2.2+row*.205,-.63,.012);box(g,.55,.1,.59,mat('#655342'),-.62,3.4,-.63);for(let x of [-.81,-.43])box(g,.07,.23,.08,timber,x,3.54,-.43);box(g,.63,.09,.65,cut,-.62,3.68,-.63);
+ for(let i=0;i<17;i++){let a=i*2.399;const x=Math.cos(a)*2.35,z=Math.sin(a)*1.8;if(z>1&&x>-.8)continue;for(let j=0;j<3;j++){let blade=mesh(g,new T.ConeGeometry(.055,.28+j*.045,6),leaf,x+j*.065,.08,z);blade.rotation.z=(j-1)*.3;}}
+ addFire(g);g.userData.flame.parent.position.set(1.95,.2,1.35);g.userData.fireLight.position.set(1.95,.9,1.35);g.scale.setScalar(.88);return g;}
 function addFire(g){const fire=new T.Group();fire.position.set(-.45,.2,1.72);g.add(fire);const stone=mat('#a69b82');for(let i=0;i<9;i++){let a=i/9*Math.PI*2;ball(fire,.12,stone,Math.cos(a)*.42,0,Math.sin(a)*.33,[1,.65,1]);}for(let i=0;i<3;i++){let l=cylinder(fire,.065,.67,wood,0,.06,0);l.rotation.z=Math.PI/2;l.rotation.y=i*Math.PI/3;}
  const flame=new T.Group();fire.add(flame);for(let [scale,color,emit] of [[1,'#f17620',.8],[.68,'#ffb72b',1.1],[.36,'#fff3a1',1.5]]){let points=[];for(let i=0;i<=20;i++){let t=i/20;points.push(new T.Vector2(Math.sin(Math.PI*t)*(.28-.13*t)*scale,t*.95*scale));}let geo=new T.LatheGeometry(points,32);let pos=geo.attributes.position;for(let i=0;i<pos.count;i++){let y=pos.getY(i);pos.setX(i,pos.getX(i)+Math.pow(y,2)*.2);}geo.computeVertexNormals();let f=mesh(flame,geo,mat(color,{emissive:color,emissiveIntensity:emit}),0,.08,.12*(1-scale));f.rotation.y=scale*2;}
  const light=new T.PointLight('#ff982c',4,6,2);light.position.set(-.45,.9,1.72);g.add(light);g.userData.flame=flame;g.userData.fireLight=light;}

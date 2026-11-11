@@ -24,3 +24,10 @@ Verification limit: the preview browser disables WebGL. The same geometry was vi
 - [x] Use the actual original social-video phone mockups only at the top of Services, with a larger central phone. Preserve transparency.
 - [x] Replace compressed sprint card titles with readable DM Sans; improve body text size and spacing.
 - [x] Verify desktop/mobile layout and all three character scenes in the available renderer.
+
+## November 11: sculpt and complete gallery
+
+- [x] Rebuild sasquatch around supplied sculpt reference: closed relaxed eyes, broad grin, swept hair, pointed beard, sculpted chest/belly, long arms and curled fingers.
+- [x] Make orange Photography label a link to all 38 photographs from the original Services gallery. Keep six-image Services preview.
+- [x] Add enlarged photo viewer with previous/next, keyboard navigation, Escape and close controls; preserve full images and omit visible descriptions.
+- [x] Rebuild cabin with timber logs, overlapping roof shingles, porch, cross railings, steps, attic window and masonry chimney. Preserve animated 3D fire, warm light, slow rotation and controls.

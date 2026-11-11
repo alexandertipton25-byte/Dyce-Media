@@ -3,7 +3,7 @@ import {MarchingCubes} from 'three/addons/objects/MarchingCubes.js';
 import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
 const cache=new Map();
 const material=(color)=>new T.MeshStandardMaterial({color,roughness:.94});
-const fur=material('#b96d45'),cream=material('#edcf99'),nose=material('#674433'),eyeMat=new T.MeshStandardMaterial({color:'#241b16',roughness:.18}),white=material('#fff8e6');
+const fur=material('#994a40'),cream=material('#edcf99'),nose=material('#674433'),eyeMat=new T.MeshStandardMaterial({color:'#241b16',roughness:.18}),white=material('#fff8e6');
 function put(g,geo,m,x=0,y=0,z=0){const o=new T.Mesh(geo,m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;g.add(o);return o;}
 // Smooth union of ellipsoid volumes gives a single continuous sculpted surface.
 function sculpt(id,parts,k=.16){if(cache.has(id))return cache.get(id);const size=42,span=3.2,mc=new MarchingCubes(size,fur,false,false,25000);mc.isolation=0;
@@ -11,21 +11,23 @@ function sculpt(id,parts,k=.16){if(cache.has(id))return cache.get(id);const size
  for(let z=0;z<size;z++)for(let y=0;y<size;y++)for(let x=0;x<size;x++){const px=(x/size*2-1)*span/2,py=(y/size*2-1)*span/2,pz=(z/size*2-1)*span/2;let d=10;for(const [cx,cy,cz,rx,ry,rz] of parts){const dx=px-cx,dy=py-cy,dz=pz-cz;const q=Math.sqrt((dx/rx)**2+(dy/ry)**2+(dz/rz)**2);d=sm(d,(q-1)*Math.min(rx,ry,rz));}mc.field[z*size*size+y*size+x]=-d;}
  mc.update();const geo=new T.BufferGeometry();for(const key of ['position','normal'])geo.setAttribute(key,new T.BufferAttribute(mc.geometry.attributes[key].array.slice(0,mc.count*3),3));geo.scale(span/2,span/2,span/2);geo.deleteAttribute('normal');const smooth=mergeVertices(geo,0.0001);smooth.computeVertexNormals();geo.dispose();mc.geometry.dispose();cache.set(id,smooth);return smooth;}
 function ell(g,r,m,x,y,z,s){let o=put(g,new T.SphereGeometry(r,32,24),m,x,y,z);o.scale.set(...s);return o;}
-// Fur is rooted on the sculpt itself, following its normals and flowing downward.
-function surfaceFur(g,shape,id,offsetY=0){let geo=cache.get(id);if(!geo){const pieces=[],pos=shape.attributes.position,norm=shape.attributes.normal;const step=Math.max(1,Math.floor(pos.count/420));for(let i=0;i<pos.count;i+=step){const p=new T.Vector3().fromBufferAttribute(pos,i),n=new T.Vector3().fromBufferAttribute(norm,i);if(n.z>.5&&Math.abs(p.x)<.4||p.y<-.6)continue;const len=.07+.035*(.5+.5*Math.sin(i*3.7));const curve=new T.CatmullRomCurve3([p.clone().addScaledVector(n,-.014),p.clone().addScaledVector(n,.025).add(new T.Vector3(.005,-len*.4,0)),p.clone().addScaledVector(n,.016).add(new T.Vector3(.01,-len,0))]);const strand=new T.TubeGeometry(curve,4,.022,5,false),a=strand.attributes.position;for(let j=0;j<a.count;j++){const t=Math.floor(j/6)/4,c=curve.getPointAt(t);a.setXYZ(j,c.x+(a.getX(j)-c.x)*(1-t*.98),c.y+(a.getY(j)-c.y)*(1-t*.98),c.z+(a.getZ(j)-c.z)*(1-t*.98));}strand.computeVertexNormals();pieces.push(strand);}geo=mergeGeometries(pieces);pieces.forEach(p=>p.dispose());cache.set(id,geo);}put(g,geo,fur,0,offsetY,0);}
-export function mascot(){const g=new T.Group();
- // Broad low shoulders merge into the head and pear-shaped torso; no neck seam.
- put(g,sculpt('body',[[0,-.22,0,.6,.66,.4],[0,.46,0,.5,.54,.39],[-.42,.05,-.02,.25,.34,.31],[.42,.05,-.02,.25,.34,.31]],.24),fur,0,1.3,0);
- surfaceFur(g,cache.get('body'),'bodyFur',1.3);
- ell(g,1,cream,0,1.03,.345,[.39,.43,.09]);
- // A cream mask and muzzle are sculpted together, keeping the face soft.
- put(g,sculpt('mask',[[0,0,0,.35,.27,.10],[0,-.19,.04,.26,.18,.12]],.11),cream,0,1.87,.365);
- const eyes=[];for(const s of [-1,1]){const e=new T.Group();e.position.set(s*.15,1.91,.463);g.add(e);ell(e,1,nose,0,0,-.006,[.092,.116,.028]);ell(e,1,eyeMat,0,.008,.015,[.072,.09,.035]);ell(e,1,white,-.022,.037,.045,[.018,.021,.012]);ell(e,1,white,.02,-.019,.047,[.008,.009,.006]);eyes.push(e);
- const brow=new T.CatmullRomCurve3([new T.Vector3(s*.075,2.06,.44),new T.Vector3(s*.16,2.09,.435),new T.Vector3(s*.245,2.055,.415)]);put(g,new T.TubeGeometry(brow,16,.025,8,false),fur);}
- ell(g,1,nose,0,1.77,.53,[.077,.044,.055]);const smile=new T.CatmullRomCurve3([new T.Vector3(-.12,1.68,.48),new T.Vector3(0,1.637,.52),new T.Vector3(.12,1.68,.48)]);put(g,new T.TubeGeometry(smile,20,.011,8,false),nose);
- // Tiny relaxed cheeks and a swept forelock.
- for(const s of [-1,1])ell(g,1,cream,s*.2,1.735,.46,[.073,.055,.024]);
- const arms=[],legs=[];for(const s of [-1,1]){const arm=new T.Group();arm.position.set(s*.48,1.36,0);g.add(arm);put(arm,sculpt('arm'+s,[[s*.12,-.16,0,.245,.36,.24],[s*.2,-.45,.04,.215,.26,.21]],.22),fur);surfaceFur(arm,cache.get('arm'+s),'armFur'+s);ell(arm,1,cream,s*.2,-.59,.15,[.16,.13,.105]);for(let j=0;j<3;j++)ell(arm,1,cream,s*.2+(j-1)*.082,-.64,.205,[.047,.066,.043]);arms.push(arm);
- const leg=new T.Group();leg.position.set(s*.29,.58,0);g.add(leg);put(leg,sculpt('leg',[[0,-.12,0,.235,.29,.24],[0,-.31,.13,.265,.16,.35]],.18),fur);for(let j=0;j<3;j++)ell(leg,1,cream,(j-1)*.13,-.36,.39,[.078,.066,.085]);legs.push(leg);}
- g.userData={arms,legs,eyes};return g;
+function lock(g,start,end,width=.10,depth=.055){const a=new T.Vector3(...start),b=new T.Vector3(...end),axis=b.clone().sub(a).normalize(),side=new T.Vector3(1,0,0);if(Math.abs(axis.dot(side))>.92)side.set(0,1,0);side.cross(axis).normalize();const up=new T.Vector3().crossVectors(axis,side).normalize(),positions=[],indices=[];for(let i=0;i<=12;i++){const t=i/12,p=a.clone().lerp(b,t);p.z+=Math.sin(Math.PI*t)*.055;const radius=Math.pow(Math.sin(Math.PI*(.08+.92*t)),.8);for(let j=0;j<12;j++){const ang=j/12*Math.PI*2,v=p.clone().addScaledVector(side,Math.cos(ang)*width*radius).addScaledVector(up,Math.sin(ang)*depth*radius);positions.push(...v.toArray());if(i<12){const n=i*12+j,m=i*12+(j+1)%12;indices.push(n,m,n+12,m,m+12,n+12);}}}const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(positions,3));geo.setIndex(indices);geo.computeVertexNormals();put(g,geo,fur);}
+function line(g,points,r,m){put(g,new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),24,r,8,false),m);}
+export function mascot(){const g=new T.Group(),skin=material('#a95548'),crease=material('#71392f');
+ // The reference's rounded belly, pectorals, broad shoulders and distinct head.
+ put(g,sculpt('torso3',[[0,-.2,0,.58,.58,.38],[0,.26,0,.6,.42,.33],[-.48,.35,0,.27,.26,.27],[.48,.35,0,.27,.26,.27],[0,-.29,.18,.49,.4,.3],[-.245,.18,.31,.28,.23,.21],[.245,.18,.31,.28,.23,.21]],.15),skin,0,1.14,0);
+ put(g,sculpt('head3',[[0,0,0,.45,.47,.32],[0,-.18,.18,.36,.27,.23],[-.27,-.02,.18,.19,.23,.17],[.27,-.02,.18,.19,.23,.17]],.13),skin,0,1.98,.035);
+ // Swept, broad hair locks frame the face and form a pointed beard.
+ for(const s of [-1,1]){for(let i=0;i<5;i++){const y=2.23-i*.14;lock(g,[s*(.31+i*.017),y,.09],[s*(.46-i*.014),y-.22,.15],.115,.065);}for(let i=0;i<3;i++)lock(g,[s*(.29-i*.09),1.77,.25],[s*(.21-i*.09),1.53-i*.035,.31],.09,.05);}
+ for(let i=0;i<5;i++){const x=-.28+i*.115;lock(g,[x,2.3,.045],[x+.11,2.49+Math.sin(i*.8)*.13,-.005],.105,.065);}lock(g,[-.02,2.28,.28],[.24,2.55,.08],.13,.065);
+ // Relaxed closed eyelids, thick brows, a broad smile and cheek dimples.
+ const eyes=[];for(const s of [-1,1]){const e=new T.Group();e.position.set(s*.16,2.065,.333);g.add(e);ell(e,1,skin,0,0,.04,[.104,.077,.061]);line(e,[[-.087,0,.074],[0,-.012,.101],[.087,0,.074]],.009,crease);eyes.push(e);line(g,[[s*.07,2.19,.36],[s*.17,2.225,.37],[s*.27,2.18,.325]],.045,fur);ell(g,1,skin,s*.27,1.88,.361,[.105,.1,.072]);line(g,[[s*.3,1.93,.399],[s*.325,1.89,.398],[s*.31,1.85,.405]],.009,crease);}
+ put(g,sculpt('nose3',[[0,0,0,.09,.085,.095],[-.06,-.04,.015,.06,.045,.07],[.06,-.04,.015,.06,.045,.07]],.04),skin,0,1.978,.398);
+ line(g,[[-.29,1.855,.405],[-.18,1.79,.458],[0,1.765,.482],[.18,1.79,.458],[.29,1.855,.405]],.011,crease);
+ line(g,[[-.22,1.765,.424],[0,1.715,.443],[.22,1.765,.424]],.026,skin);
+ const arms=[],legs=[];for(const s of [-1,1]){const arm=new T.Group();arm.position.set(s*.55,1.52,0);g.add(arm);put(arm,sculpt('longarm3'+s,[[s*.14,-.15,0,.26,.32,.25],[s*.25,-.43,.025,.23,.36,.24],[s*.25,-.71,.07,.17,.22,.17]],.15),skin);for(let row=0;row<2;row++)for(let j=0;j<3;j++)lock(arm,[s*(.07+j*.1),-.2-row*.25,.2],[s*(.12+j*.1),-.44-row*.25,.21],.075,.042);for(let j=0;j<3;j++)lock(arm,[s*.04,0,.09+j*.04],[s*(.32+j*.08),-.08-j*.07,.1+j*.06],.08,.045);
+ // Four curled fingers and a thumb, with joined palm instead of bead-like paws.
+ for(let j=0;j<4;j++)line(arm,[[s*(.15+j*.063),-.73,.13],[s*(.15+j*.063),-.86,.16],[s*(.12+j*.063),-.91,.205]],.041,skin);line(arm,[[s*.1,-.7,.14],[s*.04,-.79,.23],[s*.1,-.83,.26]],.055,skin);arms.push(arm);
+ const leg=new T.Group();leg.position.set(s*.28,.54,0);g.add(leg);put(leg,sculpt('leg3',[[0,-.13,0,.23,.29,.22],[0,-.32,.14,.25,.14,.33]],.1),skin);for(let j=0;j<4;j++)ell(leg,1,skin,(j-1.5)*.105,-.35,.38,[.062,.069,.095]);for(let j=0;j<3;j++)lock(leg,[(j-1)*.11,-.06,.19],[(j-1)*.13,-.25,.22],.065,.03);legs.push(leg);}
+ g.scale.setScalar(.91);g.userData={arms,legs,eyes};return g;
 }
