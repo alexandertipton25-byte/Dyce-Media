@@ -13,7 +13,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="styles.css" rel="stylesheet">
-<link rel="stylesheet" href="revision.css"><script type="module" src="assets/scenes.js"></script></head>
+<link rel="stylesheet" href="revision.css"><script type="module" src="assets/scenes.js"></script><link rel="stylesheet" href="night.css"></head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div aria-hidden="true" class="top-progress" id="scrollProgress"></div>
@@ -40,7 +40,7 @@
 <div class="hero-actions"><a class="btn btn-dark" href="services.html">OUR SERVICES <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a><a class="quiet-link" href="documentary.html">VIEW OUR WORK <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4v16m-6-6 6 6 6-6" /></svg></span></span></a></div>
 <p class="credit">by <a href="https://www.instagram.com/storyofjames/" rel="noopener" target="_blank">James Webb</a>, &amp; <a href="https://www.instagram.com/ericaavi/" rel="noopener" target="_blank">Erica Hart</a></p>
 </div>
-<div aria-label="Interactive three-dimensional log cabin" class="hero-visual"><div class="model-sun" aria-hidden="true"></div><div class="cabin-model" data-model="cabin" role="img" aria-label="Three-dimensional log cabin, trees and woodland island"></div><div class="model-controls"><span>DRAG TO EXPLORE</span><button class="btn btn-small btn-outline" id="spinCabin" aria-label="Rotate cabin 360 degrees">360° <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></button></div></div>
+<div aria-label="Interactive three-dimensional log cabin" class="hero-visual"><div class="model-sun" aria-hidden="true"></div><div class="cabin-model" data-model="cabin" role="img" aria-label="Three-dimensional log cabin, trees and woodland island"></div><div class="model-controls"><span>A LITTLE SPACE TO CREATE</span><button class="btn btn-small btn-outline" id="spinCabin" aria-label="Rotate cabin 360 degrees">360° <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></button><button id="pauseCabin" class="motion-toggle" type="button" aria-pressed="false">PAUSE MOTION</button></div></div>
 </div>
 <a class="scroll-indicator" href="index.html#how"><span>SCROLL TO EXPLORE</span><span aria-hidden="true" class="scroll-line"></span></a>
 </section>
@@ -51,7 +51,7 @@
 <span class="tag tag-orange">HOW TO WORK WITH US</span>
 <h2 id="howTitle">Our best work is done inside of a <em>content sprint</em></h2>
 
-</div>
+<figure class="activity-scene"><div data-model="treadmill" role="img" aria-label="Soft yeti character running on a three-dimensional treadmill"></div><figcaption>A little momentum goes a long way.</figcaption></figure></div>
 <div class="intro-right reveal">
 <div class="mini-index">01 <span></span> WORK WITH US</div>
 <p>We take that sprint, then move right into editing &amp; distribution. We can step in to tighten up a single post or manage the full scope of your brand’s digital presence.</p>
@@ -64,31 +64,31 @@
 </div>
 </section>
 <section aria-labelledby="filmTitle" class="film-section section-pad" id="work">
-<div class="container">
+<div class="container"><div class="director-scene"><div data-model="director" role="img" aria-label="Soft yeti character seated in a three-dimensional director’s chair with a camera"></div><span>READY WHEN YOU ARE.</span></div>
 <div class="section-heading on-dark reveal">
 <div><span class="tag tag-lined">OUR WORK</span><h2 id="filmTitle">DOCUMENTARY<span class="orange-dot">.</span></h2></div>
 <a class="arrow-link light" href="documentary.html">WATCH MORE <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a>
 </div>
 <div class="film-grid">
 <article class="film-card reveal">
-<button aria-label="Play documentary film 1" class="video-trigger" data-title="Documentary film 1" data-video="kNHz2GjLKUQ" type="button">
-<img alt="Cleveland Mini Doc thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-1.jpg">
+<button aria-label="Play CLEVELAND (Mini Doc)" class="video-trigger" data-title="CLEVELAND (Mini Doc)" data-video="kNHz2GjLKUQ" type="button">
+<img alt="CLEVELAND (Mini Doc)" loading="lazy" src="assets/video-kNHz2GjLKUQ.webp">
 <span aria-hidden="true" class="film-play"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 5 11 7-11 7Z" /></svg></span></span><span class="film-hover">PLAY FILM <b><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></b></span>
-</button>
+</button><h3 class="verified-film-title">CLEVELAND (Mini Doc)</h3>
 <div class="film-meta"><span class="film-number">01 / DOCUMENTARY</span><a aria-label="Open film 1 on YouTube" href="https://www.youtube.com/watch?v=kNHz2GjLKUQ" rel="noopener" target="_blank"><span class="icon-text">YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div>
 </article>
 <article class="film-card reveal">
-<button aria-label="Play documentary film 2" class="video-trigger" data-title="Documentary film 2" data-video="O8P02FjqJ_0" type="button">
-<img alt="2nd Avenue Rebuild documentary thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-2.jpg">
+<button aria-label="Play 2nd Avenue is redefining downtown Nashville" class="video-trigger" data-title="2nd Avenue is redefining downtown Nashville" data-video="O8P02FjqJ_0" type="button">
+<img alt="2nd Avenue is redefining downtown Nashville" loading="lazy" src="assets/video-O8P02FjqJ_0.webp">
 <span aria-hidden="true" class="film-play"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 5 11 7-11 7Z" /></svg></span></span><span class="film-hover">PLAY FILM <b><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></b></span>
-</button>
+</button><h3 class="verified-film-title">2nd Avenue is redefining downtown Nashville</h3>
 <div class="film-meta"><span class="film-number">02 / DOCUMENTARY</span><a aria-label="Open film 2 on YouTube" href="https://www.youtube.com/watch?v=O8P02FjqJ_0" rel="noopener" target="_blank"><span class="icon-text">YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div>
 </article>
 <article class="film-card reveal">
-<button aria-label="Play documentary film 3" class="video-trigger" data-title="Documentary film 3" data-video="n7L9a1vY2cc" type="button">
-<img alt="Inside TV News documentary thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-3.jpg">
+<button aria-label="Play Exploring a TV News Station & Nashville's Broadway | Nick Beres" class="video-trigger" data-title="Exploring a TV News Station & Nashville's Broadway | Nick Beres" data-video="n7L9a1vY2cc" type="button">
+<img alt="Exploring a TV News Station & Nashville's Broadway | Nick Beres" loading="lazy" src="assets/video-n7L9a1vY2cc.webp">
 <span aria-hidden="true" class="film-play"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 5 11 7-11 7Z" /></svg></span></span><span class="film-hover">PLAY FILM <b><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></b></span>
-</button>
+</button><h3 class="verified-film-title">Exploring a TV News Station &amp; Nashville's Broadway | Nick Beres</h3>
 <div class="film-meta"><span class="film-number">03 / DOCUMENTARY</span><a aria-label="Open film 3 on YouTube" href="https://www.youtube.com/watch?v=n7L9a1vY2cc" rel="noopener" target="_blank"><span class="icon-text">YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div>
 </article>
 </div>
@@ -146,7 +146,7 @@
 </div>
 </section>
 </main>
-<footer class="site-footer"><div class="container footer-top"><a class="footer-wordmark" href="index.html">DYCE <strong>MEDIA<span>.</span></strong></a><div class="footer-links"><a href="https://www.instagram.com/storyofjames/" rel="noopener" target="_blank"><span class="icon-text">MEET JAMES <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a><a href="https://www.instagram.com/ericaavi/" rel="noopener" target="_blank"><span class="icon-text">MEET ERICA <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div><a class="back-top" href="#main"><span class="icon-text">BACK TO TOP <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V4m-6 6 6-6 6 6" /></svg></span></a></div><div class="container footer-bottom"><span>Dyce Media 2025</span><span>For enquiries: <a href="mailto:James@Dycemedia.com">James@Dycemedia.com</a></span></div></footer>
+<footer class="site-footer"><div class="container footer-people"><div class="footer-intro"><a class="footer-wordmark" href="index.html">DYCE <strong>MEDIA<span>.</span></strong></a><p>A Creative HOUSE for modern media.</p><a class="footer-email" href="mailto:James@Dycemedia.com">James@Dycemedia.com</a></div><div><h3>James Webb</h3><p>Meet James</p><a href="https://www.instagram.com/storyofjames/" target="_blank" rel="noopener">Instagram / @storyofjames <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></a></div><div><h3>Erica Avi Hart</h3><p>Meet Erica</p><a href="https://www.instagram.com/ericaavi/" target="_blank" rel="noopener">Instagram / @ericaavi <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></a></div><div><h3>Dyce Media</h3><a href="https://www.instagram.com/dycemedia/" target="_blank" rel="noopener">Instagram / @dycemedia <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></a><a href="https://www.dycemedia.com/" target="_blank" rel="noopener">Original website <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></a><a href="contact.html">Get in touch <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></a></div></div><div class="container footer-bottom"><span>Dyce Media</span><a href="#main">BACK TO TOP <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></a></div></footer>
 <dialog aria-label="Watch video" class="video-modal" id="videoModal"><button aria-label="Close video" class="video-close" id="videoClose" type="button"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M6 18 18 6" /></svg></span></button><div class="video-frame" id="videoFrame"></div><div class="video-actions"><a href="#" id="videoYoutube" rel="noopener" target="_blank"><span class="icon-text">OPEN ON YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div></dialog>
 <script defer src="script.js"></script>
 <aside aria-label="Animated Dyce Media character" class="story-buddy" id="storyBuddy">
