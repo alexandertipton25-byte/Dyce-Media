@@ -8,7 +8,7 @@ Reuse this project. Do not modify Pocket Media or attach dycemedia.com.
 
 ## November 2026 revision
 
-- Procedural, volumetric log cabin and original cream yeti-like mascot in src/scenes.js.
+- Procedural, volumetric log cabin and original rust-furred yeti-like mascot in src/scenes.js.
 - Three.js WebGL renderer, lit materials and shadows. A depth-buffered software 3D renderer projects the same animated meshes if WebGL is unavailable, with interpolated lighting and per-pixel depth.
 - Volumetric animated flame with a warm point light; slow automatic cabin rotation, pause control, horizontal drag and 360-degree button, reduced-motion support, offscreen rendering suspension, and hideable mascot.
 - Bundled Three.js 0.180.0, built with esbuild 0.25.12. THREE-LICENSE.txt accompanies the bundle. Rebuild: install these packages, then `esbuild src/scenes.js --bundle --minify --format=esm --outfile=assets/scenes.js`.
@@ -24,3 +24,5 @@ Existing Netlify SSO site protection was left unchanged. The noindex header disc
 ## Final batch
 
 Contextual treadmill and director-chair mascot scenes. Twelve visually checked official gallery images in phone frames, seven business descriptions, owner and Nashville social links, full Nashville portraits, collaborator portraits, and verified YouTube titles/thumbnails. Mobile preview at 375px: no horizontal overflow or broken images on Services, Sprints, or News. Phone frames, captions and descriptions checked visually. See CHANGE_LIST.md and CONTENT_SOURCES.json.
+
+November 11 correction: mascot geometry in src/mascot.js uses smooth-unioned sculpted volumes and surface-rooted fur. Gallery now contains six images without captions or phone frames; the three user-selected images lead. Services header uses three original transparent phone mockups. Sprint card titles use DM Sans. Previous phone-gallery design is superseded.

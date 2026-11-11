@@ -15,3 +15,12 @@
 - [x] Check desktop/mobile layouts, motion controls, tabs, images and links; prepare publication to the existing Dyce-Media repository and dycemedia Netlify project.
 
 Verification limit: the preview browser disables WebGL. The same geometry was visually checked through the depth-buffered software renderer; GPU lighting and shadows still need a GPU-enabled browser check.
+
+## November 11 reference-based corrections
+
+- [x] Rebuild the mascot using a continuous sculpted head/body, smooth surfaces, rust fur, cream face/belly, larger eyes and gentle expression. Keep real 3D activity scenes.
+- [x] Remove phone frames and all visible descriptions from Photography.
+- [x] Lead the photography gallery with the three images supplied by the user, followed by selected original fashion portraits.
+- [x] Use the actual original social-video phone mockups only at the top of Services, with a larger central phone. Preserve transparency.
+- [x] Replace compressed sprint card titles with readable DM Sans; improve body text size and spacing.
+- [x] Verify desktop/mobile layout and all three character scenes in the available renderer.
