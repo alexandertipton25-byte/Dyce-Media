@@ -2,18 +2,18 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="#153d2c" name="theme-color"/>
-<meta content="Dyce Media — A Creative HOUSE for modern media. For Journalist, Creators, &amp; Founders." name="description"/>
-<meta content="Dyce Media — A Creative HOUSE for modern media" property="og:title"/>
-<meta content="For Journalist, Creators, &amp; Founders" property="og:description"/>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="#153d2c" name="theme-color">
+<meta content="Dyce Media — A Creative HOUSE for modern media. For Journalist, Creators, & Founders." name="description">
+<meta content="Dyce Media — A Creative HOUSE for modern media" property="og:title">
+<meta content="For Journalist, Creators, & Founders" property="og:description">
 <title>Home | Dyce Media</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&amp;family=DM+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/>
-</head>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+<link rel="stylesheet" href="revision.css"><script type="module" src="assets/scenes.js"></script></head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div aria-hidden="true" class="top-progress" id="scrollProgress"></div>
@@ -25,8 +25,8 @@
 <a class="nav-link" href="services.html">Services</a>
 <a class="nav-link" href="social-media-sprints.html">Social Media Sprints</a>
 <a class="nav-link" href="our-brands.html">Our Brands</a>
-<a class="nav-link" href="nashville-news.html">Nashville News</a>
-<a class="btn btn-small btn-outline nav-cta" href="contact.html">CONTACT US <span aria-hidden="true">↗</span></a>
+<a class="nav-link" href="nashville-news.html">Nashville News</a><a class="nav-link" href="documentary.html">Documentary</a>
+<a class="btn btn-small btn-outline nav-cta" href="contact.html">CONTACT US <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a>
 </nav>
 </header>
 <main id="main">
@@ -37,15 +37,10 @@
 <div class="eyebrow"><span class="eyebrow-rule"></span> DYCE MEDIA</div>
 <h1 id="heroTitle"><span class="hero-first">A <em>Creative HOUSE</em> for</span><span class="hero-line">modern media</span></h1>
 <p class="hero-subtitle">For Journalist, Creators, &amp; Founders</p>
-<div class="hero-actions"><a class="btn btn-dark" href="services.html">OUR SERVICES <span aria-hidden="true">↗</span></a><a class="quiet-link" href="documentary.html">VIEW OUR WORK <span aria-hidden="true">↓</span></a></div>
+<div class="hero-actions"><a class="btn btn-dark" href="services.html">OUR SERVICES <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a><a class="quiet-link" href="documentary.html">VIEW OUR WORK <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4v16m-6-6 6 6 6-6" /></svg></span></span></a></div>
 <p class="credit">by <a href="https://www.instagram.com/storyofjames/" rel="noopener" target="_blank">James Webb</a>, &amp; <a href="https://www.instagram.com/ericaavi/" rel="noopener" target="_blank">Erica Hart</a></p>
 </div>
-<div aria-label="Cozy illustrated log cabin, pine trees and glowing campfire with an orange sun" class="hero-visual">
-<div aria-hidden="true" class="hero-halo"></div>
-<img alt="A warm illustrated log cabin with forest-green pine trees and an orange firelight glow" class="cabin-art" fetchpriority="high" src="assets/cabin-art.png"/>
-
-
-<button aria-label="Play cabin rotation" class="cabin-spin-btn" id="spinCabin" type="button">360° <span aria-hidden="true">↻</span></button></div>
+<div aria-label="Interactive three-dimensional log cabin" class="hero-visual"><div class="model-sun" aria-hidden="true"></div><div class="cabin-model" data-model="cabin" role="img" aria-label="Three-dimensional log cabin, trees and woodland island"></div><div class="model-controls"><span>DRAG TO EXPLORE</span><button class="btn btn-small btn-outline" id="spinCabin" aria-label="Rotate cabin 360 degrees">360° <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19 19 5M5 5h14v14" /></svg></button></div></div>
 </div>
 <a class="scroll-indicator" href="index.html#how"><span>SCROLL TO EXPLORE</span><span aria-hidden="true" class="scroll-line"></span></a>
 </section>
@@ -56,88 +51,61 @@
 <span class="tag tag-orange">HOW TO WORK WITH US</span>
 <h2 id="howTitle">Our best work is done inside of a <em>content sprint</em></h2>
 
-<div aria-label="A small animated character running on a treadmill" class="scene-treadmill"><svg aria-hidden="true" viewbox="0 0 360 190">
-<path d="M46 161h270" stroke="#1b5232" stroke-linecap="round" stroke-width="8"></path>
-<path d="M64 149h226q14 0 14 11t-14 11H64q-12 0-12-11t12-11" fill="#193f2c"></path>
-<path class="tread-belt" d="M70 159h205" stroke="#f9bd72" stroke-dasharray="26 15" stroke-width="3"></path>
-<path d="M269 150l-23-96h-33" fill="none" stroke="#193f2c" stroke-linecap="round" stroke-width="6"></path>
-<path d="M229 58h42" stroke="#193f2c" stroke-linecap="round" stroke-width="5"></path>
-<path class="run-leg one" d="M156 120l-16 30" stroke="#e17a33" stroke-linecap="round" stroke-width="10"></path>
-<path class="run-leg two" d="M179 120l20 30" stroke="#e17a33" stroke-linecap="round" stroke-width="10"></path>
-<path d="M146 115q25 13 44 0l-5-22h-34z" fill="#f3efe1"></path>
-<path d="M154 113h31" stroke="#20543a" stroke-width="5"></path>
-<path class="run-arm one" d="M149 95l-27-11" fill="none" stroke="#e17a33" stroke-linecap="round" stroke-width="10"></path>
-<path class="run-arm two" d="M183 94l24-18" fill="none" stroke="#e17a33" stroke-linecap="round" stroke-width="10"></path>
-<circle cx="169" cy="72" fill="#f6a442" r="29"></circle>
-<path d="M145 62q25-15 47 0" fill="none" stroke="#eae6de" stroke-width="8"></path>
-<circle cx="160" cy="76" fill="#173b2a" r="2.6"></circle><circle cx="179" cy="76" fill="#173b2a" r="2.6"></circle>
-<path d="M162 87q8 7 16 0" fill="none" stroke="#173b2a" stroke-linecap="round" stroke-width="3"></path>
-</svg></div></div>
+</div>
 <div class="intro-right reveal">
 <div class="mini-index">01 <span></span> WORK WITH US</div>
 <p>We take that sprint, then move right into editing &amp; distribution. We can step in to tighten up a single post or manage the full scope of your brand’s digital presence.</p>
 <div class="inline-actions">
-<a class="btn btn-dark" href="documentary.html">View Our Work <span aria-hidden="true">↗</span></a>
-<a class="under-link" href="social-media-sprints.html">Content Sprints <span aria-hidden="true">↗</span></a>
+<a class="btn btn-dark" href="documentary.html">View Our Work <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a>
+<a class="under-link" href="social-media-sprints.html">Content Sprints <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a>
 </div>
-<div class="intro-stat"><strong>CONTENT SPRINTS <span>→</span> EDITING &amp; DISTRIBUTION</strong></div>
+<div class="intro-stat"><strong>CONTENT SPRINTS <span><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16m-6-6 6 6-6 6" /></svg></span></span> EDITING &amp; DISTRIBUTION</strong></div>
 </div>
 </div>
 </section>
 <section aria-labelledby="filmTitle" class="film-section section-pad" id="work">
-<div class="container"><div aria-label="A tiny animated character seated in a director's chair" class="scene-director"><svg aria-hidden="true" viewbox="0 0 250 220">
-<path d="M80 130L45 200M80 130l62 70M48 200h102" stroke="#f4ead6" stroke-linecap="round" stroke-width="8"></path>
-<path d="M65 93v68M65 126h85M150 90v75" stroke="#f4ead6" stroke-width="8"></path>
-<path d="M60 111h93v35H60z" fill="#ed8d40"></path>
-<circle cx="112" cy="74" fill="#f5a248" r="36"></circle>
-<path d="M81 51h63" stroke="#f5ead7" stroke-linecap="round" stroke-width="9"></path>
-<circle cx="103" cy="74" fill="#173b2a" r="3"></circle><circle cx="124" cy="74" fill="#173b2a" r="3"></circle>
-<path d="M104 88q10 10 19 0" fill="none" stroke="#173b2a" stroke-linecap="round" stroke-width="3.5"></path>
-<path class="direct-arm" d="M145 114q29 5 34-13" fill="none" stroke="#e78c3c" stroke-linecap="round" stroke-width="12"></path>
-<path d="M91 146l-12 24m47-24 16 23" stroke="#e78c3c" stroke-linecap="round" stroke-width="12"></path>
-<path d="M181 85h40l-3 24h-36z" fill="#f5ead7" stroke="#173b2a" stroke-width="3"></path>
-</svg></div>
+<div class="container">
 <div class="section-heading on-dark reveal">
 <div><span class="tag tag-lined">OUR WORK</span><h2 id="filmTitle">DOCUMENTARY<span class="orange-dot">.</span></h2></div>
-<a class="arrow-link light" href="documentary.html">WATCH MORE <span aria-hidden="true">↗</span></a>
+<a class="arrow-link light" href="documentary.html">WATCH MORE <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a>
 </div>
 <div class="film-grid">
 <article class="film-card reveal">
 <button aria-label="Play documentary film 1" class="video-trigger" data-title="Documentary film 1" data-video="kNHz2GjLKUQ" type="button">
-<img alt="Cleveland Mini Doc thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-1.jpg"/>
-<span aria-hidden="true" class="film-play">▶</span><span class="film-hover">PLAY FILM <b>↗</b></span>
+<img alt="Cleveland Mini Doc thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-1.jpg">
+<span aria-hidden="true" class="film-play"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 5 11 7-11 7Z" /></svg></span></span><span class="film-hover">PLAY FILM <b><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></b></span>
 </button>
-<div class="film-meta"><span class="film-number">01 / DOCUMENTARY</span><a aria-label="Open film 1 on YouTube" href="https://www.youtube.com/watch?v=kNHz2GjLKUQ" rel="noopener" target="_blank">YOUTUBE ↗</a></div>
+<div class="film-meta"><span class="film-number">01 / DOCUMENTARY</span><a aria-label="Open film 1 on YouTube" href="https://www.youtube.com/watch?v=kNHz2GjLKUQ" rel="noopener" target="_blank"><span class="icon-text">YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div>
 </article>
 <article class="film-card reveal">
 <button aria-label="Play documentary film 2" class="video-trigger" data-title="Documentary film 2" data-video="O8P02FjqJ_0" type="button">
-<img alt="2nd Avenue Rebuild documentary thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-2.jpg"/>
-<span aria-hidden="true" class="film-play">▶</span><span class="film-hover">PLAY FILM <b>↗</b></span>
+<img alt="2nd Avenue Rebuild documentary thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-2.jpg">
+<span aria-hidden="true" class="film-play"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 5 11 7-11 7Z" /></svg></span></span><span class="film-hover">PLAY FILM <b><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></b></span>
 </button>
-<div class="film-meta"><span class="film-number">02 / DOCUMENTARY</span><a aria-label="Open film 2 on YouTube" href="https://www.youtube.com/watch?v=O8P02FjqJ_0" rel="noopener" target="_blank">YOUTUBE ↗</a></div>
+<div class="film-meta"><span class="film-number">02 / DOCUMENTARY</span><a aria-label="Open film 2 on YouTube" href="https://www.youtube.com/watch?v=O8P02FjqJ_0" rel="noopener" target="_blank"><span class="icon-text">YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div>
 </article>
 <article class="film-card reveal">
 <button aria-label="Play documentary film 3" class="video-trigger" data-title="Documentary film 3" data-video="n7L9a1vY2cc" type="button">
-<img alt="Inside TV News documentary thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-3.jpg"/>
-<span aria-hidden="true" class="film-play">▶</span><span class="film-hover">PLAY FILM <b>↗</b></span>
+<img alt="Inside TV News documentary thumbnail shown on Dyce Media's original site" loading="lazy" src="assets/film-3.jpg">
+<span aria-hidden="true" class="film-play"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 5 11 7-11 7Z" /></svg></span></span><span class="film-hover">PLAY FILM <b><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></b></span>
 </button>
-<div class="film-meta"><span class="film-number">03 / DOCUMENTARY</span><a aria-label="Open film 3 on YouTube" href="https://www.youtube.com/watch?v=n7L9a1vY2cc" rel="noopener" target="_blank">YOUTUBE ↗</a></div>
+<div class="film-meta"><span class="film-number">03 / DOCUMENTARY</span><a aria-label="Open film 3 on YouTube" href="https://www.youtube.com/watch?v=n7L9a1vY2cc" rel="noopener" target="_blank"><span class="icon-text">YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div>
 </article>
 </div>
-<a class="film-bottom-link" href="services.html">Documenting the intentional moments and rituals that define the human experience. <span aria-hidden="true">↗</span></a>
+<a class="film-bottom-link" href="services.html">Documenting the intentional moments and rituals that define the human experience. <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a>
 </div>
 </section>
 <section aria-labelledby="servicesTitle" class="services-section section-pad" id="services">
 <div class="container services-layout">
 <div class="services-sticky reveal">
 <span class="tag tag-orange">Ways to</span>
-<h2 id="servicesTitle">WORK<br/>WITH <em>US.</em></h2>
-<div aria-hidden="true" class="woodsy-divider"><span></span><svg viewbox="0 0 100 50"><path d="M9 44 26 14 43 44M20 31h13M43 44 65 5 87 44M56 27h18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path></svg></div>
+<h2 id="servicesTitle">WORK<br>WITH <em>US.</em></h2>
+<div aria-hidden="true" class="woodsy-divider"><span></span><svg viewbox="0 0 100 50"><path d="M9 44 26 14 43 44M20 31h13M43 44 65 5 87 44M56 27h18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" /></svg></div>
 <p class="services-aside">SERVICES</p>
-<a class="btn btn-outline" href="services.html">Our Services <span aria-hidden="true">↗</span></a>
+<a class="btn btn-outline" href="services.html">Our Services <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a>
 </div>
 <div class="accordion reveal" id="serviceAccordion">
-<details open="">
+<details open>
 <summary><span class="service-count">01</span><span>Branding &amp; Distribution</span><span aria-hidden="true" class="plus"></span></summary>
 <div class="accordion-content"><p>We step in to fully build and support your digital branding and presence so you don’t have to carry it alone. That means shaping how your work shows up online, creating structure across platforms, and developing a clear strategy for how it moves and reaches people.</p><p>We handle the planning, organization, and distribution behind the scenes, adapting as things grow, while protecting the space you need to create. The goal is simple: your work stays honest and intact, and the digital side moves forward with clarity and intention.</p></div>
 </details>
@@ -163,36 +131,25 @@
 
 <section aria-labelledby="contactTitle" class="contact-section section-pad" id="contact">
 <div class="container contact-grid">
-<div class="contact-copy reveal"><span class="tag tag-light">GET IN TOUCH</span><h2 id="contactTitle">Get in <em>touch.</em></h2><p>It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more.</p><div class="contact-email"><span>For enquiries:</span><a href="mailto:James@Dycemedia.com">James@Dycemedia.com <span aria-hidden="true">↗</span></a></div></div>
+<div class="contact-copy reveal"><span class="tag tag-light">GET IN TOUCH</span><h2 id="contactTitle">Get in <em>touch.</em></h2><p>It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more.</p><div class="contact-email"><span>For enquiries:</span><a href="mailto:James@Dycemedia.com">James@Dycemedia.com <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></a></div></div>
 <form action="/thanks.html" class="contact-form reveal" data-netlify="true" id="contactForm" method="POST" name="dyce-contact" netlify-honeypot="bot-field">
-<input name="form-name" type="hidden" value="dyce-contact"/>
-<p class="hidden"><label>Don't fill this out: <input name="bot-field"/></label></p>
-<div class="field-row"><label>First Name<input autocomplete="given-name" name="first-name" placeholder="First Name" required=""/></label><label>Last Name<input autocomplete="family-name" name="last-name" placeholder="Last Name"/></label></div>
-<label>Email (required)<input autocomplete="email" name="email" placeholder="you@example.com" required="" type="email"/></label>
-<label>Subject<input name="subject" placeholder="Collaboration"/></label>
-<label>Message (required)<textarea name="message" placeholder="Tell us about your idea..." required="" rows="4"></textarea></label>
-<fieldset><legend>What are you interested in?</legend><label><input name="interest" type="checkbox" value="CONTENT CREATION"/> CONTENT CREATION</label><label><input name="interest" type="checkbox" value="SOCIAL MEDIA STRATEGY"/> SOCIAL MEDIA STRATEGY</label><label><input name="interest" type="checkbox" value="PAID MEDIA"/> PAID MEDIA</label><label><input name="interest" type="checkbox" value="PERSONAL BRANDING"/> PERSONAL BRANDING</label><label><input name="interest" type="checkbox" value="PHOTOGRAPHY"/> PHOTOGRAPHY</label><label><input name="interest" type="checkbox" value="NASHVILLE NEWS"/> NASHVILLE NEWS</label></fieldset>
-<button class="btn btn-orange form-submit" type="submit">SUBMIT <span aria-hidden="true">↗</span></button>
-<p class="form-disclaimer" id="formNotice">This form will work on Netlify when form processing is enabled. In local preview, submitting opens an email draft.</p>
+<input name="form-name" type="hidden" value="dyce-contact">
+<p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+<div class="field-row"><label>First Name<input autocomplete="given-name" name="first-name" placeholder="First Name" required></label><label>Last Name<input autocomplete="family-name" name="last-name" placeholder="Last Name"></label></div>
+<label>Email (required)<input autocomplete="email" name="email" placeholder="you@example.com" required type="email"></label>
+<label>Subject<input name="subject" placeholder="Collaboration"></label>
+<label>Message (required)<textarea name="message" placeholder="Tell us about your idea..." required rows="4"></textarea></label>
+<fieldset><legend>What are you interested in?</legend><label><input name="interest" type="checkbox" value="CONTENT CREATION"> CONTENT CREATION</label><label><input name="interest" type="checkbox" value="SOCIAL MEDIA STRATEGY"> SOCIAL MEDIA STRATEGY</label><label><input name="interest" type="checkbox" value="PAID MEDIA"> PAID MEDIA</label><label><input name="interest" type="checkbox" value="PERSONAL BRANDING"> PERSONAL BRANDING</label><label><input name="interest" type="checkbox" value="PHOTOGRAPHY"> PHOTOGRAPHY</label><label><input name="interest" type="checkbox" value="NASHVILLE NEWS"> NASHVILLE NEWS</label></fieldset>
+<button class="btn btn-orange form-submit" type="submit">SUBMIT <span aria-hidden="true"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></span></button>
+<p class="form-disclaimer" id="formNotice">You can also reach us at James@Dycemedia.com.</p>
 </form>
 </div>
 </section>
 </main>
-<footer class="site-footer"><div class="container footer-top"><a class="footer-wordmark" href="index.html">DYCE <strong>MEDIA<span>.</span></strong></a><div class="footer-links"><a href="https://www.instagram.com/storyofjames/" rel="noopener" target="_blank">MEET JAMES ↗</a><a href="https://www.instagram.com/ericaavi/" rel="noopener" target="_blank">MEET ERICA ↗</a></div><a class="back-top" href="index.html">BACK TO TOP ↑</a></div><div class="container footer-bottom"><span>Dyce Media 2025</span><span>For enquiries: <a href="mailto:James@Dycemedia.com">James@Dycemedia.com</a></span></div></footer>
-<dialog aria-label="Watch video" class="video-modal" id="videoModal"><button aria-label="Close video" class="video-close" id="videoClose" type="button">×</button><div class="video-frame" id="videoFrame"></div><div class="video-actions"><a href="#" id="videoYoutube" rel="noopener" target="_blank">OPEN ON YOUTUBE ↗</a></div></dialog>
-<script defer="" src="script.js"></script>
+<footer class="site-footer"><div class="container footer-top"><a class="footer-wordmark" href="index.html">DYCE <strong>MEDIA<span>.</span></strong></a><div class="footer-links"><a href="https://www.instagram.com/storyofjames/" rel="noopener" target="_blank"><span class="icon-text">MEET JAMES <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a><a href="https://www.instagram.com/ericaavi/" rel="noopener" target="_blank"><span class="icon-text">MEET ERICA <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div><a class="back-top" href="#main"><span class="icon-text">BACK TO TOP <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V4m-6 6 6-6 6 6" /></svg></span></a></div><div class="container footer-bottom"><span>Dyce Media 2025</span><span>For enquiries: <a href="mailto:James@Dycemedia.com">James@Dycemedia.com</a></span></div></footer>
+<dialog aria-label="Watch video" class="video-modal" id="videoModal"><button aria-label="Close video" class="video-close" id="videoClose" type="button"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M6 18 18 6" /></svg></span></button><div class="video-frame" id="videoFrame"></div><div class="video-actions"><a href="#" id="videoYoutube" rel="noopener" target="_blank"><span class="icon-text">OPEN ON YOUTUBE <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19 19 5M5 5h14v14" /></svg></span></a></div></dialog>
+<script defer src="script.js"></script>
 <aside aria-label="Animated Dyce Media character" class="story-buddy" id="storyBuddy">
-<button aria-label="Hide animated character" class="buddy-exit" title="Hide character" type="button">×</button>
-<div aria-hidden="true" class="buddy-character"><svg role="img" viewbox="0 0 132 150">
-<ellipse cx="66" cy="138" fill="#133b25" opacity=".16" rx="35" ry="5"></ellipse>
-<path class="buddy-leg buddy-left" d="M51 117l-12 15" stroke="#143826" stroke-linecap="round" stroke-width="8"></path>
-<path class="buddy-leg buddy-right" d="M82 117l12 15" stroke="#143826" stroke-linecap="round" stroke-width="8"></path>
-<path class="buddy-arm" d="M39 83L17 62" stroke="#e67a27" stroke-linecap="round" stroke-width="12"></path>
-<path class="buddy-wave-arm" d="M94 86Q114 80 114 51" stroke="#e67a27" stroke-linecap="round" stroke-width="12"></path>
-<path class="buddy-wave-hand" d="M113 52Q117 41 121 49" fill="none" stroke="#e67a27" stroke-linecap="round" stroke-width="11"></path>
-<circle cx="66" cy="74" fill="#f9a541" r="46" stroke="#b85d20" stroke-width="2.5"></circle>
-<ellipse cx="49" cy="69" fill="#173b2a" rx="4" ry="6"></ellipse><ellipse cx="82" cy="69" fill="#173b2a" rx="4" ry="6"></ellipse>
-<path d="M54 87Q66 99 80 86" fill="none" stroke="#173b2a" stroke-linecap="round" stroke-width="4.5"></path>
-<ellipse cx="49" cy="39" fill="#ffdba0" opacity=".38" rx="15" ry="8" transform="rotate(-28 49 39)"></ellipse>
-</svg></div></aside></body>
+<button aria-label="Hide animated character" class="buddy-exit" title="Hide character" type="button"><span class="icon-text"><svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M6 18 18 6" /></svg></span></button>
+<div aria-hidden="true" class="buddy-character"><div data-model="mascot" class="mascot-model" role="img" aria-label="Friendly green three-dimensional Dyce character"></div></div></aside></body>
 </html>

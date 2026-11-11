@@ -72,50 +72,11 @@
     dialog.addEventListener('click',e=>{if(e.target===dialog)closeVideo();});
     dialog.addEventListener('close',()=>{frame.replaceChildren();document.body.classList.remove('modal-open');});
   }
-  const cabin = one('.cabin-art');
-  const spin = one('#spinCabin');
-  if(cabin && spin){
-    spin.addEventListener('click',()=>{
-      if(reduced)return;
-      cabin.classList.remove('is-spinning');
-      void cabin.offsetWidth;
-      cabin.classList.add('is-spinning');
-    });
-    cabin.addEventListener('animationend',event=>{
-      if(event.animationName==='cabinSpin')cabin.classList.remove('is-spinning');
-    });
-  }
-  // Decorative mascot: random, short actions while the webpage is open.
-  // Motion respects OS reduced-motion preferences and can be hidden per session.
   const buddy=one('#storyBuddy');
-  if(buddy){
-    const exit=buddy.querySelector('.buddy-exit');
-    let buddyHidden = false;
-    try { buddyHidden = sessionStorage.getItem('dyce-hide-buddy') === '1'; } catch (_) {}
-    if(buddyHidden)buddy.classList.add('is-hidden');
-    else{
-      window.setTimeout(()=>buddy.classList.add('is-ready'),700);
-      if(!reduced){
-        const routines=['wave','hop','peek','walk','nod'];
-        let last=-1;
-        const play=()=>{
-          if(buddy.classList.contains('is-hidden'))return;
-          buddy.classList.remove(...routines);
-          let n=Math.floor(Math.random()*routines.length);
-          if(n===last)n=(n+1)%routines.length;
-          last=n;
-          void buddy.offsetWidth;
-          buddy.classList.add(routines[n]);
-          window.setTimeout(()=>buddy.classList.remove(routines[n]),3200);
-          window.setTimeout(play,5500+Math.floor(Math.random()*4800));
-        };
-        window.setTimeout(play,3000);
-      }
-    }
-    if(exit)exit.addEventListener('click',()=>{
-      buddy.classList.add('is-hidden');try { sessionStorage.setItem('dyce-hide-buddy','1'); } catch (_) {}
-    });
-  }
+  if(buddy){buddy.classList.add('is-ready');try{if(sessionStorage.getItem('dyce-hide-buddy')==='1')buddy.classList.add('is-hidden')}catch(_){}buddy.querySelector('.buddy-exit')?.addEventListener('click',()=>{buddy.classList.add('is-hidden');try{sessionStorage.setItem('dyce-hide-buddy','1')}catch(_){}});}
+  const tabs=many('[role="tab"]');
+  function activate(tab){tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!active;});}
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>activate(t));t.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(e.key)){e.preventDefault();const n=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;activate(tabs[n]);tabs[n].focus();}});});
   many('.photo-card img').forEach(img=>{
     const fallback=()=>img.closest('.photo-card')?.classList.add('image-unavailable');
     img.addEventListener('error',fallback);

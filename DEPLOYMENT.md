@@ -1,29 +1,22 @@
-# Dyce Media development preview
+# Dyce Media preview
 
-Source: Dyce_Media_Revision_2_Netlify_Preview.zip. The original 15 files are preserved for the initial preview deployment.
+Repository: https://github.com/alexandertipton25-byte/Dyce-Media
+Existing Netlify project: dycemedia (ee0e5d3d-5e95-4cc2-bef3-09b1ad684a88)
+URL: https://dycemedia.netlify.app
+Production branch: main. Publish directory: . No build step required.
+Reuse this project. Do not modify Pocket Media or attach dycemedia.com.
 
-Dedicated repository: https://github.com/alexandertipton25-byte/Dyce-Media
+## November 2026 revision
 
-## Initial Netlify import
+- Procedural, volumetric log cabin and original green mascot in src/scenes.js.
+- Three.js WebGL renderer, lit materials and shadows. SVG projection of the same mesh geometry is used if WebGL is unavailable; this fallback has simpler shading and depth sorting.
+- Cabin horizontal drag and 360-degree button, reduced-motion support, offscreen rendering suspension, and hideable mascot.
+- Bundled Three.js 0.180.0, built with esbuild 0.25.12. THREE-LICENSE.txt accompanies the bundle. Rebuild: install these packages, then `esbuild src/scenes.js --bundle --minify --format=esm --outfile=assets/scenes.js`.
+- SVG interface icons; seven photo-led sprint projects with original destinations; Nashville News and Nick Beres brand tabs; source-based Nashville News team and copy; photography and contact film-slate image.
+- CONTENT_SOURCES.json records image sources. Site copy and project destinations were checked against the current original site.
 
-Import this existing GitHub repository as a NEW Netlify project. Use main as the production branch, leave the build command empty, and use . as the publish directory (also specified in netlify.toml). Suggested project name: dyce-media-preview.
+## Verification and remaining operational settings
 
-Do not attach dycemedia.com or modify Pocket Media. Reuse this repository and the same preview project for subsequent changes. Netlify's local state directory is ignored by Git.
-
-## Verification after deployment
-
-- Open all seven primary pages and thanks.html.
-- Check mobile navigation, overflow, cabin artwork, mascot, and reduced motion.
-- Test the three YouTube modal embeds and their YouTube links.
-- Verify externally hosted photography.
-- Enable Netlify Forms detection and confirm dyce-contact registration before testing submissions. Email notifications to James@Dycemedia.com are not configured by the HTML alone; delivery must be configured and verified separately.
-
-## Remaining work from Revision 2
-
-- Add Documentary to the primary navigation consistently.
-- Replace sprint project text tiles with verified original project imagery and destinations.
-- Audit copy and media against the current original Dyce Media website.
-- Verify accurate video titles and thumbnail-to-video mapping.
-- Cabin rotation is a flat-image CSS prototype; genuine 360-degree rotation needs a 3D model.
-
-The preview sends a noindex response header. This discourages search indexing but does not make a publicly accessible preview private.
+Local links and assets checked. Brand tabs, phone-width layouts and software-rendered 3D checked in browser. The review browser has WebGL disabled, so hardware lighting/shadows require a GPU-enabled browser to visually verify.
+Netlify Forms processing enabled. No test enquiries sent; email notifications are not configured by HTML alone.
+Existing Netlify SSO site protection was left unchanged. The noindex header discourages search indexing and is not an access control.
