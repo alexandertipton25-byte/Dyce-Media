@@ -1,4 +1,5 @@
 [build]
+  command = "node scripts/assemble-model.cjs"
   publish = "."
 
 # This project is the separate development preview, not dycemedia.com.
